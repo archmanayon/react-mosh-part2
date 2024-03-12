@@ -7,19 +7,16 @@ interface Todo {
   userId: number;
   completed: boolean;
 }
-
 const useTodos = () => {
+  const fetchTodos = () =>
+    axios
+      .get<Todo[]>("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => res.data);
 
-    const fetchTodos = () =>
-        axios
-        .get<Todo[]>('https://jsonplaceholder.typicode.com/todos')
-        .then(res => res.data)
-    ;
-    
-    return useQuery<Todo[], Error>({
-            queryKey: ['todo'],
-            queryFn: fetchTodos
-        })    
-}
+  return useQuery<Todo[], Error>({
+    queryKey: ["todo"],
+    queryFn: fetchTodos,
+  });
+};
 
 export default useTodos;
