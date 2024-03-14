@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-interface Post {
+export interface Post {
   id: number;
   publisher_number: string;
   title: string;

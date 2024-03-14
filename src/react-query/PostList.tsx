@@ -2,7 +2,7 @@ import { useState } from "react";
 import usePosts from "./hooks/usePosts";
 
 const PostList = () => {
-  const limit = 5;
+  const limit = 2;
   const [page, Setpage] = useState(1);
   const { data: posts, error, isLoading } = usePosts({ limit, page });
 
