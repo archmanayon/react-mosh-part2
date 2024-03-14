@@ -7,14 +7,6 @@ interface Forms {
   onAdd: ({}: FieldValues) => void;
 }
 const RoyaltyForm = ({ onAdd }: Forms) => {
-  // const addPublisher = useMutation({
-  //   mutationFn: (publisher: Post) => {
-  //     axios
-  //       .post("http://localhost/api/mosh", publisher)
-  //       .then((res) => res.data);
-  //   },
-  // });
-
   const {
     register,
     handleSubmit,
