@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FieldValues, useForm } from "react-hook-form";
 import { Post } from "./hooks/usePosts";
 import axios from "axios";
@@ -14,6 +14,8 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
     formState: { errors, isValid },
   } = useForm();
 
+  // queryClient
+  const queryClient = useQueryClient();
   // Define the mutation function
   const addPublisher = useMutation({
     mutationFn: (publisher: Post) => {
@@ -21,12 +23,18 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
         .post("http://localhost/api/mosh", publisher)
         .then((res) => res.data);
     },
+    onSuccess: (fromDB, fromForm) => {
+      console.log("from from: " + fromForm);
+      queryClient.invalidateQueries({
+        queryKey: ["post"],
+      });
+    },
   });
 
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        onAdd(data);
+        // onAdd(data);
         addPublisher.mutate({
           id: 0,
           publisher_number: "112",
