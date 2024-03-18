@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { CACHE_KEY_POST } from "../constants";
 import APIClient from "../services/apiClient";
 
 const apiClient = new APIClient<Post>("/mosh");
@@ -18,21 +18,8 @@ interface pageType {
 
 const usePosts = (paginate: pageType) => {
   return useQuery<Post[], Error>({
-    queryKey: ["post", paginate],
+    queryKey: CACHE_KEY_POST,
     queryFn: apiClient.get,
-    // () =>
-    //   axios
-    //     .get<Post[]>(
-    //       "http://localhost/api/mosh",
-    //       {
-    //         params: {
-    //           _start: (paginate.pageCount - 1) * paginate.limit,
-    //           _limit: paginate.limit,
-    //         },
-    //       }
-    //     )
-    //     .then((res) => res.data),
-    // staleTime: 10 * 1000,
   });
 };
 
