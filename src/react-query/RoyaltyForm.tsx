@@ -1,14 +1,10 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FieldValues, useForm } from "react-hook-form";
-import { Post } from "./hooks/usePosts";
-import axios from "axios";
-import { useState } from "react";
+import useAddPub from "./hooks/useAddPub";
 
 interface Forms {
   onAdd: ({}: FieldValues) => void;
 }
 const RoyaltyForm = ({ onAdd }: Forms) => {
-  const [scss, Setscss] = useState(false);
   const {
     register,
     handleSubmit,
@@ -16,29 +12,14 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
     formState: { errors, isValid },
   } = useForm();
 
-  // queryClient
-  const queryClient = useQueryClient();
   // Define the mutation function
-  const addPub = useMutation({
-    mutationFn: (publisher: Post) => {
-      return axios
-        .post("http://localhost/api/mosh", publisher)
-        .then((res) => res.data);
-    },
-    onSuccess: (savedPost, newPost) => {
-      Setscss(true);
-      queryClient.invalidateQueries({
-        queryKey: ["post"],
-      });
-      console.log("frm DB: " + savedPost + "frm FORM: " + newPost.author);
-    },
-  });
+  const addPub = useAddPub();
 
   return (
     <>
       <form
         onSubmit={handleSubmit((data) => {
-          // onAdd(data);
+          onAdd(data);
           addPub.mutate({
             id: 0,
             publisher_number: "112",
@@ -62,7 +43,7 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
         <br />
       </form>
 
-      <div> {scss ? "saved to DB" : addPub.error?.message}</div>
+      <div> {addPub.error?.message ? addPub.error.message : ""}</div>
     </>
   );
 };
