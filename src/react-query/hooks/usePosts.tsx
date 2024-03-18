@@ -10,7 +10,7 @@ export interface Post {
 
 interface pageType {
   limit: number;
-  page: number;
+  pageCount: number;
 }
 
 const usePosts = (paginate: pageType) => {
@@ -19,11 +19,12 @@ const usePosts = (paginate: pageType) => {
     queryFn: () =>
       axios
         .get<Post[]>(
-          // "https://jsonplaceholder.typicode.com/posts"
+          // "https://jsonplaceholder.typicode.com/posts",
+
           "http://localhost/api/mosh",
           {
             params: {
-              _start: (paginate.page - 1) * paginate.limit,
+              _start: (paginate.pageCount - 1) * paginate.limit,
               _limit: paginate.limit,
             },
           }

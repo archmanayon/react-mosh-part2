@@ -3,8 +3,8 @@ import usePosts from "./hooks/usePosts";
 
 const PostList = () => {
   const limit = 2;
-  const [page, Setpage] = useState(1);
-  const { data: posts, error, isLoading } = usePosts({ limit, page });
+  const [pageCount, SetpageCount] = useState(1);
+  const { data: posts, error, isLoading } = usePosts({ limit, pageCount });
 
   if (error) return <p>{error.message}</p>;
   if (isLoading) return <p>Loading...</p>;
@@ -25,16 +25,16 @@ const PostList = () => {
         ))}
       </ul>
       <button
-        disabled={page === 1}
+        disabled={pageCount === 1}
         className="btn btn-outline-primary"
-        onClick={() => Setpage(page - 1)}
+        onClick={() => SetpageCount(pageCount - 1)}
       >
         Previous
       </button>
       <button
-        // disabled={page === 1}
+        // disabled={pageCount === 1}
         className="btn btn-outline-primary"
-        onClick={() => Setpage(page + 1)}
+        onClick={() => SetpageCount(pageCount + 1)}
       >
         Next
       </button>
