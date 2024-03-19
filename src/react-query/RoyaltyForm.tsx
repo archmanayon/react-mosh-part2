@@ -20,12 +20,14 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
       <form
         onSubmit={handleSubmit((data) => {
           onAdd(data);
-          addPub.mutate({
-            id: 0,
-            publisher_number: "112",
-            title: "Archie Philosophy",
-            author: data.publisher_name,
-          });
+          if (data.publisher_name) {
+            addPub.mutate({
+              id: 0,
+              publisher_number: "112",
+              title: "Archie Philosophy",
+              author: data.publisher_name,
+            });
+          }
           reset();
         })}
       >

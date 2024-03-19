@@ -1,15 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { CACHE_KEY_POST } from "../constants";
-import APIClient from "../services/apiClient";
-
-const apiClient = new APIClient<Post>("/mosh");
-
-export interface Post {
-  id: number;
-  publisher_number: string;
-  title: string;
-  author: string;
-}
+import postService, { Post } from "../services/postService";
 
 interface pageType {
   limit: number;
@@ -19,7 +10,7 @@ interface pageType {
 const usePosts = (paginate: pageType) => {
   return useQuery<Post[], Error>({
     queryKey: CACHE_KEY_POST,
-    queryFn: apiClient.get,
+    queryFn: postService.get,
   });
 };
 

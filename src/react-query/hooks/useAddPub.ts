@@ -1,13 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CACHE_KEY_POST } from "../constants";
-import APIClient from "../services/apiClient";
-import { Post } from "./usePosts";
+import postService from "../services/postService";
 
-const apiClient = new APIClient<Post>("/mosh");
 const useAddPub = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: apiClient.post,
+    mutationFn: postService.post,
     onSuccess: (savedPost, newPost) => {
       queryClient.invalidateQueries({
         queryKey: CACHE_KEY_POST,
