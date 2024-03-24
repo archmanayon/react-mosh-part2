@@ -18,6 +18,7 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
   return (
     <>
       <form
+        className="flex items-center space-x-2 rounded-md bg-gray-50 p-2"
         onSubmit={handleSubmit((data) => {
           onAdd(data);
           if (data.publisher_name) {
@@ -33,8 +34,10 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
       >
         <label htmlFor="publisher_name"> Publisher </label>
         <input
+          className="border-none bg-transparent text-lg text-gray-900 focus:outline-none"
           {...register("publisher_name", { required: true, minLength: 3 })}
         />
+
         {/* display errors */}
         {errors.publisher_name?.type == "required"
           ? "Can't Be Blank"

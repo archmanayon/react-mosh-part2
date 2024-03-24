@@ -1,3 +1,7 @@
-body { 
-  padding: 1rem; 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rid {
+  @apply bg-pink-800 h-20 w-5 ml-3;
 }

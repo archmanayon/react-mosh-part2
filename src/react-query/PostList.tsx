@@ -10,10 +10,18 @@ const PostList = () => {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <>
-      <ul className="list-group">
+    <div className="">
+      <div className="flex items-end">
+        <div className="bg-green-800 h-5 w-5 ml-3 "></div>
+        <div className="bg-yellow-800 h-10 w-5 ml-3"></div>
+        <div className="rid"></div>
+      </div>
+      <ul className="list-group sm:text-red-700  md:text-blue-400 lg:text-green-500">
         {posts?.map((post) => (
-          <li key={post.id} className="list-group-item">
+          <li
+            key={post.id}
+            className="list-group-item pl-3 border border-b-gray-500"
+          >
             {post.id +
               " | " +
               post.publisher_number +
@@ -26,7 +34,7 @@ const PostList = () => {
       </ul>
       <button
         disabled={pageCount === 1}
-        className="btn btn-outline-primary"
+        className="btn btn-outline-primary px-5"
         onClick={() => SetpageCount(pageCount - 1)}
       >
         Previous
@@ -38,7 +46,7 @@ const PostList = () => {
       >
         Next
       </button>
-    </>
+    </div>
   );
 };
 
