@@ -2,6 +2,11 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost/api",
+  // withCredentials: true,
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
 });
 
 class APIClient<T> {
