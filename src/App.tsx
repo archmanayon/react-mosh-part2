@@ -8,11 +8,29 @@ import TodoList from "./react-query/TodoList";
 function App() {
   return (
     <>
-      <RequestResetForm onAdd={(data) => console.log(data.email)} />
-      {/* <Tailwindcss /> */}
-      {/* <TodoList /> */}
-      <RoyaltyForm onAdd={(data) => console.log(data.publisher_name)} />
-      <PostList />
+      <div className="grid grid-cols-3 grid-rows-2 gap-4">
+        {/* <Tailwindcss /> */}
+        {/* <TodoList /> */}
+        <div className="bg-gray-400 w-auto">
+          <RequestResetForm onAdd={(data) => console.log(data.email)} />
+        </div>
+        <div className="bg-gray-400 w-auto">
+          <RequestResetForm onAdd={(data) => console.log(data.email)} />
+        </div>
+        <div className="bg-gray-400 w-auto">
+          <RequestResetForm onAdd={(data) => console.log(data.email)} />
+        </div>
+        <div className="bg-gray-400 w-auto">
+          <RequestResetForm onAdd={(data) => console.log(data.email)} />
+        </div>
+        <div className="bg-gray-400 w-auto">
+          <RequestResetForm onAdd={(data) => console.log(data.email)} />
+        </div>
+        <div className="bg-gray-400 w-auto">
+          <RoyaltyForm onAdd={(data) => console.log(data.publisher_name)} />
+          <PostList />
+        </div>
+      </div>
     </>
   );
 }
