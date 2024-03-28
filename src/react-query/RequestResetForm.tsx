@@ -45,13 +45,14 @@ const RequestResetForm = ({ onAdd }: Forms) => {
             >
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="requested_email"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Email address
                 </label>
                 <div className="mt-2">
                   <input
+                    id="requested_email"
                     placeholder="type your registered email"
                     {...register("requested_email", {
                       required: true,
@@ -59,6 +60,9 @@ const RequestResetForm = ({ onAdd }: Forms) => {
                     })}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                   />
+                  {errors.requested_email && (
+                    <>{errors.requested_email.message}</>
+                  )}
                 </div>
               </div>
 

@@ -1,5 +1,6 @@
 import "./App.css";
 import Tailwindcss from "./Tailwindcss";
+import ChangePWForm from "./react-query/ChangePWForm";
 import PostList from "./react-query/PostList";
 import RequestResetForm from "./react-query/RequestResetForm";
 import RoyaltyForm from "./react-query/RoyaltyForm";
@@ -12,20 +13,18 @@ function App() {
         {/* <Tailwindcss /> */}
         {/* <TodoList /> */}
         <div className="bg-gray-400 w-auto">
-          <RequestResetForm onAdd={(data) => console.log(data.email)} />
+          <RequestResetForm
+            onAdd={(data) => console.log(data.requested_email)}
+          />
         </div>
         <div className="bg-gray-400 w-auto">
-          <RequestResetForm onAdd={(data) => console.log(data.email)} />
+          <ChangePWForm
+            onAdd={(data) => console.log(data.email)}
+            token="80j98K1Fph6MkLfZRcbShLx3nAlLmkfdmfiaI8Qn93LoZYTBbN3wWrGGKHOiHUP8"
+          />
         </div>
-        <div className="bg-gray-400 w-auto">
-          <RequestResetForm onAdd={(data) => console.log(data.email)} />
-        </div>
-        <div className="bg-gray-400 w-auto">
-          <RequestResetForm onAdd={(data) => console.log(data.email)} />
-        </div>
-        <div className="bg-gray-400 w-auto">
-          <RequestResetForm onAdd={(data) => console.log(data.email)} />
-        </div>
+        <div className="bg-gray-400 w-auto"></div>
+        <div className="bg-gray-400 w-auto"></div>
         <div className="bg-gray-400 w-auto">
           <RoyaltyForm onAdd={(data) => console.log(data.publisher_name)} />
           <PostList />

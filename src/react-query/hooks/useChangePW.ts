@@ -1,18 +1,18 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { CACHE_KEY_EMAIL } from "../constants";
-import requestResetService from "../services/requestResetService";
+import { CACHE_KEY_PW } from "../constants";
+import changePWService from "../services/changePWService";
 
-const useResetRequest = () => {
+const useChangePW = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: requestResetService.post,
+    mutationFn: changePWService.post,
     onSuccess: (savedPost, newPost) => {
       queryClient.invalidateQueries({
-        queryKey: CACHE_KEY_EMAIL,
+        queryKey: CACHE_KEY_PW,
       });
       console.log("frm DB: " + savedPost + "frm FORM: " + newPost);
     },
   });
 };
 
-export default useResetRequest;
+export default useChangePW;
