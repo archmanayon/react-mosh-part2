@@ -12,11 +12,12 @@ const PostList = () => {
   return (
     <div className="">
       <div className="flex items-end">
-        <div className="bg-green-800 h-5 w-5 ml-3 "></div>
-        <div className="bg-yellow-800 h-10 w-5 ml-3"></div>
-        <div className="rid"></div>
+        {/* sample flex */}
+        <div className="bg-green-800 h-5 w-5 ml-3 text-center">f</div>
+        <div className="bg-yellow-800 h-10 w-5 ml-3 text-center">s</div>
+        <div className="rid text-center">t</div>
       </div>
-      <ul className="list-group sm:text-red-700  md:text-blue-400 lg:text-green-500">
+      <ul className="list-group sm:text-red-700  md:text-blue-400 lg:text-green-800">
         {posts?.map((post) => (
           <li
             key={post.id}

@@ -20,7 +20,7 @@ function App() {
         <div className="bg-gray-400 w-auto">
           <ChangePWForm
             onAdd={(data) => console.log(data.email)}
-            token="80j98K1Fph6MkLfZRcbShLx3nAlLmkfdmfiaI8Qn93LoZYTBbN3wWrGGKHOiHUP8"
+            token="bq4PkWZMdUlsax8ctgLulY6FYEeNJc1ptxpI7a0r2bkqHD8MGUMedTJjCbjHqC0x"
           />
         </div>
         <div className="bg-gray-400 w-auto"></div>
