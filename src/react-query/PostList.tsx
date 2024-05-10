@@ -25,7 +25,7 @@ const PostList = () => {
           >
             {post.id +
               " | " +
-              post.publisher_number +
+              post.market +
               " | " +
               post.title +
               " | " +

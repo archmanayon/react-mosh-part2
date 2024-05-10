@@ -24,7 +24,7 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
           if (data.publisher_name) {
             addPub.mutate({
               id: 0,
-              publisher_number: "112",
+              market: "112",
               title: "Archie Philosophy",
               author: data.publisher_name,
             });
