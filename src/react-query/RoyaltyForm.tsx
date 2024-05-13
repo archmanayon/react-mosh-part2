@@ -2,7 +2,8 @@ import { FieldValues, useForm } from "react-hook-form";
 import useAddPub from "./hooks/useAddPub";
 
 interface Forms {
-  onAdd: ({}: FieldValues) => void;
+  // onAdd: ({}: FieldValues) => void;
+  onAdd: (s: string) => void;
 }
 const RoyaltyForm = ({ onAdd }: Forms) => {
   const {
@@ -20,14 +21,14 @@ const RoyaltyForm = ({ onAdd }: Forms) => {
       <form
         className="flex items-center space-x-2 rounded-md bg-gray-50 p-2"
         onSubmit={handleSubmit((data) => {
-          onAdd(data);
           if (data.publisher_name) {
             addPub.mutate({
               id: 0,
               market: "112",
-              title: "Archie Philosophy",
+              title: "Philosophy by: " + data.publisher_name,
               author: data.publisher_name,
             });
+            onAdd("submitted: " + data.publisher_name);
           }
           reset();
         })}

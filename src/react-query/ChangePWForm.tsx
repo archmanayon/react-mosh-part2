@@ -1,5 +1,7 @@
 import { FieldValues, useForm } from "react-hook-form";
 import useChangePW from "./hooks/useChangePW";
+import { useContext } from "react";
+import AuthContext from "../state-management/Contexts/AuthContext";
 
 interface Forms {
   token: string;
@@ -7,6 +9,7 @@ interface Forms {
 }
 
 const ChangePWForm = ({ token, onAdd }: Forms) => {
+  const { user } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -20,6 +23,13 @@ const ChangePWForm = ({ token, onAdd }: Forms) => {
 
   return (
     <>
+      {user ? (
+        <div className="mt-6 text-center text-2xl font-bold text-green-600">
+          {user}
+        </div>
+      ) : (
+        ""
+      )}
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
