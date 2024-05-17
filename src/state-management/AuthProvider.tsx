@@ -2,9 +2,9 @@ import { ReactNode, useReducer } from "react";
 import authReducer from "../reducers/authReducer";
 import AuthContext from "./Contexts/AuthContext";
 
-interface Props {
+type Props = {
   children: ReactNode;
-}
+};
 
 const AuthProvider = ({ children }: Props) => {
   const [user, dispatch] = useReducer(authReducer, "");
