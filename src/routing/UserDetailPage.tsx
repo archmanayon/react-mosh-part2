@@ -19,10 +19,10 @@ const UserDetailPage = () => {
         <tbody>
           <tr>
             <td>
-              <Link to="/users">{parameters.id}.-----------------</Link>
+              <Link to="/login">{parameters.id}.-----------------</Link>
             </td>
             <td>
-              <Link to="/users">{parameters.name}</Link>
+              <Link to="/login">{parameters.name}</Link>
             </td>
           </tr>
         </tbody>

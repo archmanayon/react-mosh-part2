@@ -1,4 +1,5 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
+import useAuth from "./hooks/useAuth";
 
 const UserListPage = () => {
   const navigate = useNavigate();
